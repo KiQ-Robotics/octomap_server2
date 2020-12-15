@@ -13,8 +13,8 @@ from launch.substitutions import ThisLaunchFileDir
 
 def generate_launch_description():
 
-    params = {'resolution': 0.15,
-              'frame_id': 'map',
+    params = {'resolution': 0.02,
+              'frame_id': 'sc_color_frame',
               'base_frame_id': 'base_footprint',
               'height_map': True,
               'colored_map': True,
@@ -41,8 +41,8 @@ def generate_launch_description():
               'color_free/a': 1.0,
               'publish_free_space': False,
     }
-    
-    remap = [('cloud_in', '/livox/lidar')]
+
+    remap = [('cloud_in', '/sc/rgbd/points')]
     node = Node(package='octomap_server2',
                  executable='octomap_server',
                  output='screen',
