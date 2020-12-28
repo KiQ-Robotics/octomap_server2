@@ -14,7 +14,7 @@ from launch.substitutions import ThisLaunchFileDir
 def generate_launch_description():
 
     params = {'resolution': 0.02,
-              'frame_id': 'sc_color_frame',
+              'frame_id': 'camera_depth_optical_frame',
               'base_frame_id': 'base_footprint',
               'height_map': True,
               'colored_map': True,
@@ -42,7 +42,7 @@ def generate_launch_description():
               'publish_free_space': False,
     }
 
-    remap = [('cloud_in', '/sc/rgbd/points')]
+    remap = [('cloud_in', '/D455/depth/color/points')]
     node = Node(package='octomap_server2',
                  executable='octomap_server',
                  output='screen',
